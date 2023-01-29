@@ -3,6 +3,7 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230129134503_feature-table-changes")]
+    partial class featuretablechanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,6 +174,31 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("FeatureID");
 
                     b.ToTable("Features");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.FeatureOther", b =>
+                {
+                    b.Property<int>("FeatureOthersID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeatureOthersID"));
+
+                    b.Property<string>("FeatureOthersDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FeatureOthersImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("FeatureOthersStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FeatureOthersTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FeatureOthersID");
+
+                    b.ToTable("FeatureOthers");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Guide", b =>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Feature>
+<div class="best-rooms py-5">
+    <div class="container py-md-5">
+        <div class="ban-content-inf row">
+            @foreach (var item in Model)
+            {
+                @if (item.FeatureStatus == true)
+                {
+                    <div class="maghny-gd-1 col-lg-6">
+                        <div class="maghny-grid">
+                            <figure class="effect-lily border-radius  m-0">
+                                <img class="img-fluid" src="~/Traversal/assets/images/@item.FeatureImage" alt="" />
+                                <figcaption>
+                                    <div>
+                                        <h4>@item.FeatureTitle</h4>
+                                        <p>@item.FeatureDescription</p>
+                                    </div>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                }
+            }
+            <div class="maghny-gd-1 col-lg-6 mt-lg-0 mt-4">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        @if (item.FeatureStatus == false)
+                        {
+                            @if (item.FeatureLastTwo == false)
+                            {
+                                <div class="maghny-gd-1 col-6">
+                                    <div class="maghny-grid">
+                                        <figure class="effect-lily border-radius">
+                                            <img class="img-fluid" src="/Traversal/assets/images/@item.FeatureImage" alt="" />
+                                            <figcaption>
+                                                <div>
+                                                    <h4>@item.FeatureTitle</h4>
+                                                    <p>@item.FeatureDescription</p>
+                                                </div>
+
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="maghny-gd-1 col-6 mt-4">
+                                    <div class="maghny-grid">
+                                        <figure class="effect-lily border-radius">
+                                            <img class="img-fluid" src="/Traversal/assets/images/@item.FeatureImage" alt="" />
+                                            <figcaption>
+                                                <div>
+                                                    <h4>@item.FeatureTitle</h4>
+                                                    <p>@item.FeatureDescription</p>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

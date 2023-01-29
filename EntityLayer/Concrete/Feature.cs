@@ -15,5 +15,6 @@ namespace EntityLayer.Concrete
         public string? FeatureDescription { get; set; }
         public string? FeatureImage { get; set; }
         public bool FeatureStatus { get; set; }
+        public bool FeatureLastTwo { get; set; }
     }
 }
