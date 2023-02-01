@@ -1,0 +1,30 @@
+﻿@model List<Comment>
+
+<div class="comments mt-5">
+    <h4 class="side-title ">Yorumlar (@Model.Count())</h4>
+    @foreach (var item in Model)
+    {
+        <div class="media mt-4">
+            <div class="img-circle">
+                <img src="~/Traversal/assets/images/c1.jpg" class="img-fluid" alt="...">
+            </div>
+            <div class="media-body">
+                <ul class="time-rply mb-2">
+                    <li>
+                        <a href="~/Traversal/assets#URL" class="name mt-0 mb-2 d-block">@item.CommentName</a>
+                        @item.CommentDate
+
+                    </li>
+                    <li class="reply-last">
+                        <a href="~/Traversal/assets#reply" class="reply">
+                            Reply
+                        </a>
+                    </li>
+                </ul>
+                <p>
+                    @item.CommentContent
+                </p>
+            </div>
+        </div>
+    }
+</div>

@@ -19,5 +19,11 @@ namespace EntityLayer.Concrete
         public string? DestinationDescription { get; set; }
         public bool DestinationStatus { get; set; }
         public int DestinationCapacity { get; set; }
+        public string? DestinationCoverImage { get; set; }
+        public string? DestinationSubImage1 { get; set; }
+        public string? DestinationSubImage2 { get; set; }
+        public string? DestinationDetails { get; set; }
+        public string? DestinationDetails2 { get; set; }
+        public List<Comment>? Comments { get; set; }
     }
 }
