@@ -111,6 +111,7 @@
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, sed et excepturi.
                                     Distinctio fugit odit? Fugit ipsam. Lorem ipsum dolor sit.
                                 </p>
+                                <a name="yorumlar"></a>
                                 <ul class="author-icons mt-4">
                                     <li>
                                         <a class="facebook" href="~/Traversal/assets#url">
@@ -154,8 +155,8 @@
                     </div>
                     <!--//author-card-->
                     @await Component.InvokeAsync("_CommentList", new{id=ViewBag.id})
-
-                    @await Component.InvokeAsync("_AddComment")
+                    <a name="yorumyap"></a>
+                    @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml", new{id=ViewBag.id})
                 </div>
             </div>
             <!--//blog-post-->
