@@ -1,0 +1,78 @@
+﻿@model UserRegisterViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Traversal Üye Ol</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LINEARICONS -->
+    <link rel="stylesheet" href="~/register/fonts/linearicons/style.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/register/css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="inner">
+            <img src="~/register/images/image-1.png" alt="" class="image-1">
+            <form method="post">
+                <h3>Üye Ol</h3>
+                <span style="color:red" asp-validation-for="Name"></span>
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" class="form-control" placeholder="Adınız" asp-for="Name">
+                </div>
+                <span style="color:red" asp-validation-for="Surname"></span>
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" class="form-control" placeholder="Soyadınız" asp-for="Surname">
+                </div>
+                <span style="color:red" asp-validation-for="PhoneNumber"></span>
+                <div class="form-holder">
+                    <span class="lnr lnr-phone-handset"></span>
+                    <input type="text" class="form-control" placeholder="Telefon Numaranız" asp-for="PhoneNumber">
+                </div>
+                <span style="color:red" asp-validation-for="Email"></span>
+                <div class="form-holder">
+                    <span class="lnr lnr-envelope"></span>
+                    <input type="text" class="form-control" placeholder="Mail Adresiniz" asp-for="Email">
+                </div>
+                <span style="color:red" asp-validation-for="Password"></span>
+                <div class="form-holder">
+                    <span class="lnr lnr-lock"></span>
+                    <input type="password" class="form-control" placeholder="Şifre" asp-for="Password">
+                </div>
+                <span style="color:red" asp-validation-for="RePassword"></span>
+                <div class="form-holder">
+                    <span class="lnr lnr-lock"></span>
+                    <input type="password" class="form-control" placeholder="Şifre Tekrar" asp-for="RePassword">
+                </div>
+                <div style="color:red" asp-validation-summary="ModelOnly"></div>
+                <button>
+                    <span>Gönder</span>
+                </button>
+                <br />
+                <div class="text-center p-t-12">
+                    <span class="txt1">
+                        Zaten bir hesabınız var mı?
+                    </span>
+                    <a class="txt2" href="/Login/SignIn/">
+                        Giriş Yap
+                    </a>
+                </div>
+            </form>
+            <img src="~/register/images/image-2.png" alt="" class="image-2">
+        </div>
+
+    </div>
+
+    <script src="~/register/js/jquery-3.3.1.min.js"></script>
+    <script src="~/register/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
