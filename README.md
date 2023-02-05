@@ -6,3 +6,4 @@ I used some technologies in this project.
 - Entity framework
 - .Net Core 7.0
 - Fluent Validation
+- Asp.NetCore Identity
