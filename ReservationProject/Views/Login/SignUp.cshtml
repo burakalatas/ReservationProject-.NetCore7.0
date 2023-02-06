@@ -33,6 +33,11 @@
                     <span class="lnr lnr-user"></span>
                     <input type="text" class="form-control" placeholder="Soyadınız" asp-for="Surname">
                 </div>
+                <span style="color:red" asp-validation-for="UserName"></span>
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" class="form-control" placeholder="Kullanıcı Adı" asp-for="UserName">
+                </div>
                 <span style="color:red" asp-validation-for="PhoneNumber"></span>
                 <div class="form-holder">
                     <span class="lnr lnr-phone-handset"></span>

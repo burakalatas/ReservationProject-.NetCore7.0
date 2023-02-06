@@ -4,10 +4,12 @@ namespace ReservationProject.Models
 {
     public class UserRegisterViewModel
     {
-        [Required(ErrorMessage = "Kullanıcı adı boş geçilemez.")]
+        [Required(ErrorMessage = "Ad boş geçilemez.")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Kullanıcı soyadı boş geçilemez.")]
+        [Required(ErrorMessage = "Soyadı boş geçilemez.")]
         public string Surname { get; set; }
+        [Required(ErrorMessage = "Kullanıcı Adı boş geçilemez.")]
+        public string UserName { get; set; }
         [Required(ErrorMessage = "Kullanıcı e-posta adresi boş geçilemez.")]
         [EmailAddress(ErrorMessage = "Lütfen geçerli bir e-posta adresi giriniz.")]
         public string Email { get; set; }

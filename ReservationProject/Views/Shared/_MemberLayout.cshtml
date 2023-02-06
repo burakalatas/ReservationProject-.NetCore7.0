@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--
+=========================================================
+* Soft UI Dashboard - v1.0.3
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
+* Copyright 2021 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("/Views/MemberLayoutPartial/_HeadPartial.cshtml")
+
+<body class="g-sidenav-show  bg-gray-100">
+
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_AsidePartial.cshtml")
+
+    <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+
+        @await Html.PartialAsync("/Views/MemberLayoutPartial/_NavbarPartial.cshtml")
+
+        <div class="container-fluid py-4">
+
+            @RenderBody()
+
+            @await Html.PartialAsync("/Views/MemberLayoutPartial/_FooterPartial.cshtml")
+        </div>
+    </main>
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_RightSidePartial.cshtml")
+
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_ScriptPartial.cshtml")
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+﻿@model UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<h1>Profil Bilgileri</h1>
+
+<form method="post" enctype="multipart/form-data">
+    @Html.Label("Adınız")
+    <input type="text" asp-for="name" class="form-control" />
+    <br />
+    @Html.Label("Soyadınız")
+    <input type="text" asp-for="surname" class="form-control" />
+    <br />
+    @Html.Label("Mail Adresiniz")
+    <input type="text" asp-for="mailAddress" class="form-control" />
+    <br />
+    @Html.Label("Telefon Numaranız")
+    <input type="text" asp-for="phonenumber" class="form-control" />
+    <br />
+    @Html.Label("Şifreniz")
+    <input type="text" asp-for="password" class="form-control" />
+    <br />
+    @Html.Label("Şifre Tekrar")
+    <input type="text" asp-for="confirmpassword" class="form-control" />
+    <br />
+    @Html.Label("Fotoğraf Ekle")
+    <input type="file" asp-for="Image" />
+    <br />
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+
