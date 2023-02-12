@@ -1,0 +1,29 @@
+﻿@model Reservation
+@{
+    ViewData["Title"] = "NewReservation";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<h1>Yeni Rezervasyon Oluştur</h1>
+
+<form method="post">
+@*    <div class="form-group">
+    @Html.Label("Varış Yeri")
+    @Html.DropDownListFor(x=>x.Destination,(List<SelectListItem>)ViewBag.list,new{@class="form-control"})
+    </div>*@
+    <div class="form-group">
+        @Html.Label("Kişi Sayısı")
+        <input type="number" asp-for="PersonCount" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Tarih")
+        <input type="date" asp-for="ReservationDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Eklemek istedikleriniz")
+        <br />
+        <textarea rows="5" class="form-control" id="exampleFormControlTextarea1" asp-for="Description"></textarea>
+    </div>
+    <button class="btn btn-outline-success">Gönder</button>
+</form>
+

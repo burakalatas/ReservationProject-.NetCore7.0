@@ -1,0 +1,68 @@
+﻿@model List<Reservation>
+@{
+    ViewData["Title"] = "WaitingForApproveReservations";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Onay Bekleyen Rezervasyonlarım</h6>
+            </div>
+            @if (Model.Count == 0)
+            {
+                <p style="text-align:center">Onay bekleyen rezervasyon bulunmamaktadır.</p>
+            }
+            else{
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center justify-content-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">#</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Varış Şehri</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Rezervasyon Tarihi</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kişi Sayısı</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Durum</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">@item.ReservationID</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">@item.Destination.DestinationCity</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">@item.ReservationDate.ToShortDateString()</p>
+                                    </td>
+                                    <td>
+                                        <span class="text-xs font-weight-bold">@item.PersonCount</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-xs font-weight-bold">@item.Status</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="#" class="btn btn-link text-secondary mb-0">
+                                            <i class="fa fa-ellipsis-v text-xs"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
