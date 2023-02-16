@@ -1,0 +1,59 @@
+﻿@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- Striped Rows -->
+<div class="card">
+    <h5 class="card-header">Rotalar</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Başlangıç Şehri</th>
+                    <th>Varış Şehri</th>
+                    <th>Fiyat</th>
+                    <th>Kapasite</th>
+                    <th>Durum</th>
+                    <th>Dahası</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.DestinationStartingCity</td>
+                        <td><strong>@item.DestinationCity</strong></td>
+                        <td>$@item.DestinationPrice</td>
+                        <td>@item.DestinationCapacity</td>
+
+                        @if (item.DestinationStatus == true)
+                        {
+                            <td><span class="badge bg-label-success me-1">Aktif</span></td>
+                        }
+                        else
+                        {
+                            <td><span class="badge bg-label-danger me-1">Pasif</span></td>
+                        }
+
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/Destination/DestinationDetails/@item.DestinationID"><i class="bx bx-show"></i> Sitede Gör</a>
+                                    <a class="dropdown-item" href="/Admin/Destination/EditDestination/@item.DestinationID"><i class="bx bx-edit-alt me-1"></i> Düzenle</a>
+                                    <a class="dropdown-item" href="/Admin/Destination/DeleteDestination/@item.DestinationID"><i class="bx bx-trash me-1"></i> Sil</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--/ Striped Rows -->
