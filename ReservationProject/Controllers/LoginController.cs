@@ -74,5 +74,10 @@ namespace ReservationProject.Controllers
             }
             return View(p);
         }
+        public async Task<IActionResult> SignOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Default");
+        }
     }
 }
