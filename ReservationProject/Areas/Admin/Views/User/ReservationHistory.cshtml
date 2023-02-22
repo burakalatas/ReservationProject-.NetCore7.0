@@ -1,0 +1,71 @@
+﻿@model List<Reservation>
+@{
+    ViewData["Title"] = "ReservationHistory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">@ViewBag.nameSurname'ın Rezervasyon Geçmişi</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Rezervasyon Id</th>
+                    <th>Başlangıç Noktası</th>
+                    <th>Varış Noktası</th>
+                    <th>Kişi Sayısı</th>
+                    <th>Tarih</th>
+                    <th>Durum</th>
+                    <th>Dahası</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ReservationID</td>
+                        <td>@item.Destination.DestinationStartingCity</td>
+                        <td><strong>@item.Destination.DestinationCity</strong></td>
+                        <td>@item.PersonCount</td>
+                        <td>@item.ReservationDate.ToShortDateString()</td>
+
+                        @if (item.Status == "Tamamlandı")
+                        {
+                            <td><span class="badge bg-label-success me-1">Tamamlandı</span></td>
+                        }
+                        else if (item.Status == "İptal edildi")
+                        {
+                            <td><span class="badge bg-label-warning me-1">İptal edildi</span></td>
+                        }
+                        else if (item.Status =="Onay bekliyor")
+                        {
+                            <td><span class="badge bg-label-info me-1">Onay bekliyor</span></td>
+                        }
+                        else if (item.Status =="Onaylandı")
+                        {
+                            <td><span class="badge bg-label-primary me-1">Onaylandı</span></td>
+                        }
+                        else
+                        {
+                            <td><span class="badge bg-label-danger me-1">Hata! Lütfen admin ile iletişime geçiniz!</span></td>
+                        }
+
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#"><i class="bx bx-show"></i> Düzenle</a>
+                                    <a class="dropdown-item" href="#"><i class="bx bx-trash me-1"></i> Sil</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer" style="text-align:center;">
+    </div>
+</div>

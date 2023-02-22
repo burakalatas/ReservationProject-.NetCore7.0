@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+
+    @await Component.InvokeAsync("_DashboardBanner")
+
+    @await Component.InvokeAsync("_Card1Statistics")
+
+    @await Component.InvokeAsync("_TotalRevenue")
+
+    @await Component.InvokeAsync("_Card2Statistics")
+
+</div>
+<div class="row">
+
+    @await Component.InvokeAsync("_DestinationStatistics")
+
+    @await Component.InvokeAsync("_DestinationStatistics2")
+
+    @await Component.InvokeAsync("_AdminGuideList")
+
+</div>
+
+<!-- / Content -->
+<!-- Vendors JS -->
+<script src="~/Admin/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+<!-- Page JS -->
+<script src="~/Admin/assets/js/dashboards-analytics.js"></script>
+
+
+

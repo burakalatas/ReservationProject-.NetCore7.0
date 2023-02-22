@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public About GetById(int id)
         {
-            throw new NotImplementedException();
+            return _aboutDal.GetById(id);
         }
 
         public List<About> GetList()

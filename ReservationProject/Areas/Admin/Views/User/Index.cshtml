@@ -1,0 +1,53 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Kullanıcılar (<strong><span class="align-items-sm-end">@Model.Count()</span></strong>)</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Ad Soyad</th>
+                    <th>Mail</th>
+                    <th>Telefon No</th>
+                    <th>Dahası</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><strong>@item.Id</strong></td>
+                        <td>@item.UserName</td>
+                        <td>@item.Name @item.Surname</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/Admin/User/CommentHistory/@item.Id"><i class='bx bx-message-square-dots'></i> Yorumları</a>
+                                    <a class="dropdown-item" href="/Admin/User/ReservationHistory/@item.Id"><i class='bx bx-history'></i> Tur Geçmişi</a>
+                                    <a class="dropdown-item" href="/Admin/User/EditUser/@item.Id"><i class='bx bx-edit'></i> Düzenle</a>
+                                    <a class="dropdown-item" onclick="return confirm('Silmek istediğinizden emin misiniz ?')" href="/Admin/User/DeleteUser/@item.Id"><i class="bx bx-trash me-1"></i> Sil</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer" style="text-align:center;">
+        <a href="/LogIn/SignUp/" class="btn btn-primary">Yeni Kullanıcı Ekle</a>
+    </div>
+</div>
+
+

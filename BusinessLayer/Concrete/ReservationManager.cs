@@ -30,12 +30,17 @@ namespace BusinessLayer.Concrete
 
         public Reservation GetById(int id)
         {
-            throw new NotImplementedException();
+            return _reservationDal.GetById(id);
         }
 
         public List<Reservation> GetList()
         {
-            throw new NotImplementedException();
+            return _reservationDal.list();
+        }
+
+        public List<Reservation> GetListByUserId(int id)
+        {
+            return _reservationDal.GetListByUserId(id);
         }
 
         public List<Reservation> GetListWithReservationByAccepted(int id)

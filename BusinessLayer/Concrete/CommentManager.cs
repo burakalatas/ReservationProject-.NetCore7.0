@@ -42,6 +42,11 @@ namespace BusinessLayer.Concrete
             return _commentDal.GetListByFilter(x => x.DestinationID == id);
         }
 
+        public List<Comment> GetListCommentWithDestination()
+        {
+            return _commentDal.GetListCommentWithDestination();
+        }
+
         public void Update(Comment entity)
         {
             _commentDal.update(entity);

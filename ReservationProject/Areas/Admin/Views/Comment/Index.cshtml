@@ -1,19 +1,19 @@
-﻿@model List<Destination>
+﻿@model List<Comment>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="card">
-    <h5 class="card-header">Rotalar</h5>
+    <h5 class="card-header">Tur Yorumları</h5>
     <div class="table-responsive text-nowrap">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Başlangıç Şehri</th>
-                    <th>Varış Şehri</th>
-                    <th>Fiyat</th>
-                    <th>Kapasite</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Başlangıç Noktası</th>
+                    <th>Varış Noktası</th>
+                    <th>Yorum Tarihi</th>
                     <th>Durum</th>
                     <th>Dahası</th>
                 </tr>
@@ -22,12 +22,12 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.DestinationStartingCity</td>
-                        <td><strong>@item.DestinationCity</strong></td>
-                        <td>$@item.DestinationPrice</td>
-                        <td>@item.DestinationCapacity</td>
+                        <td>@item.CommentName</td>
+                        <td>@item.Destination.DestinationStartingCity</td>
+                        <td><strong>@item.Destination.DestinationCity</strong></td>
+                        <td>@item.CommentDate.ToShortDateString()</td>
 
-                        @if (item.DestinationStatus == true)
+                        @if (item.CommentStatus == true)
                         {
                             <td><span class="badge bg-label-success me-1">Aktif</span></td>
                         }
@@ -43,8 +43,7 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="/Destination/DestinationDetails/@item.DestinationID"><i class="bx bx-show"></i> Sitede Gör</a>
-                                    <a class="dropdown-item" href="/Admin/Destination/EditDestination/@item.DestinationID"><i class="bx bx-edit-alt me-1"></i> Düzenle</a>
-                                    <a class="dropdown-item" href="/Admin/Destination/DeleteDestination/@item.DestinationID"><i class="bx bx-trash me-1"></i> Sil</a>
+                                    <a class="dropdown-item" href="/Admin/Comment/DeleteComment/@item.CommentID"><i class="bx bx-trash me-1"></i> Sil</a>
                                 </div>
                             </div>
                         </td>
@@ -54,9 +53,6 @@
         </table>
     </div>
     <div class="card-footer" style="text-align:center;">
-        <a class="btn btn-primary" href="/Admin/Destination/AddDestination/">
-            Yeni Rota Ekle
-        </a>
     </div>
 </div>
 
