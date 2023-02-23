@@ -1,0 +1,117 @@
+﻿@model AddGuideViewModel
+@{
+    ViewData["Title"] = "EditGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <!-- Basic with Icons -->
+    <div class="col-xxl">
+        <div class="card mb-4">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Rehber Bilgilerini Düzenle</h5>
+                <a class="btn btn-primary" href="/Admin/Guide/Index/">Geri Dön</a>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    @Html.HiddenFor(x=>x.id)
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Adı Soyadı</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-fullname2" class="input-group-text">
+                                    <i class="bx bx-map"></i>
+                                </span>
+                                <input type="text"
+                                       class="form-control"
+                                       id="basic-icon-default-fullname"
+                                       placeholder="Adı Soyadı"
+                                       aria-label="Adı Soyadı"
+                                       aria-describedby="basic-icon-default-fullname2" asp-for="nameSurname" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Durumu</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <div class="form-check form-switch ps-0">
+                                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked asp-for="status">
+                                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Aktif</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-message">Açıklama</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-message2" class="input-group-text">
+                                    <i class="bx bx-comment"></i>
+                                </span>
+                                <textarea id="basic-icon-default-message"
+                                          class="form-control"
+                                          placeholder="Açıklama"
+                                          aria-label="Açıklama"
+                                          aria-describedby="basic-icon-default-message2" asp-for="description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-message">Twitter Url</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-message2" class="input-group-text">
+                                    <i class="bx bx-comment"></i>
+                                </span>
+                                <textarea id="basic-icon-default-message"
+                                          class="form-control"
+                                          placeholder="Twitter Url"
+                                          aria-label="Twitter Url"
+                                          aria-describedby="basic-icon-default-message2" asp-for="twitterUrl"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 form-label" for="basic-icon-default-message">Instagram Url</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-message2" class="input-group-text">
+                                    <i class="bx bx-comment"></i>
+                                </span>
+                                <textarea id="basic-icon-default-message"
+                                          class="form-control"
+                                          placeholder="Instagram Url"
+                                          aria-label="Instagram Url"
+                                          aria-describedby="basic-icon-default-message2" asp-for="instagramUrl"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Fotoğraf <img src="~/guideimages/@Model.imageUrl" class="avatar avatar-sm rounded-circle me-2" alt="Guide Image"></label>
+                        
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text">
+                                    <i class="bx bx-image"></i>
+                                </span>
+                                <input type="file"
+                                       id="basic-icon-default-company"
+                                       class="form-control"
+                                       placeholder="Fotoğraf"
+                                       aria-label="Fotoğraf"
+                                       aria-describedby="basic-icon-default-company2" asp-for="Image" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Ekle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

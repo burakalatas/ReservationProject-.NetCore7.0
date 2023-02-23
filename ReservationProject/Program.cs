@@ -11,6 +11,14 @@ using ReservationProject.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddLogging(x =>
+{
+    x.ClearProviders();
+    x.SetMinimumLevel(LogLevel.Debug);
+    x.AddDebug();
+});
+
+
 // Add services to the container.
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
@@ -32,6 +40,14 @@ builder.Services.AddMvc();
 
 var app = builder.Build();
 
+//logging stuff---
+var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
+
+var path = Directory.GetCurrentDirectory();
+
+loggerFactory.AddFile($"{path}\\Logs\\Log1.txt");
+//end of logging stuff ---
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -40,6 +56,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

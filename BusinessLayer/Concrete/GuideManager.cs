@@ -20,17 +20,17 @@ namespace BusinessLayer.Concrete
 
         public void Add(Guide entity)
         {
-            throw new NotImplementedException();
+            _guideDal.insert(entity);
         }
 
         public void Delete(Guide entity)
         {
-            throw new NotImplementedException();
+            _guideDal.delete(entity);
         }
 
         public Guide GetById(int id)
         {
-            throw new NotImplementedException();
+            return _guideDal.GetById(id);
         }
 
         public List<Guide> GetList()
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public void Update(Guide entity)
         {
-            throw new NotImplementedException();
+            _guideDal.update(entity);
         }
     }
 }

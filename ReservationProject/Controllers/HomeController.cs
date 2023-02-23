@@ -15,6 +15,8 @@ namespace ReservationProject.Controllers
 
         public IActionResult Index()
         {
+            var d = DateTime.Now;
+            _logger.LogInformation(d+" Index sayfası açıldı");
             return View();
         }
 
