@@ -8,3 +8,4 @@ I used some technologies in this project:
 - Fluent Validation
 - Asp.NetCore Identity
 - MSSQL (Code First Approach)
+- Serilog
