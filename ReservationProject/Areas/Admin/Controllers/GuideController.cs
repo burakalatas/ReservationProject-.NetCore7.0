@@ -1,5 +1,7 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using ReservationProject.Areas.Admin.Models;
 
@@ -45,8 +47,16 @@ namespace ReservationProject.Areas.Admin.Controllers
             newGuide.GuideName = p.nameSurname;
             newGuide.GuideTwitterURL = p.twitterUrl;
             newGuide.GuideInstagramURL = p.instagramUrl;
+            
+            if (ModelState.IsValid)
+            {
+                _guideService.Add(newGuide);
+            }
+            else
+            {
+                return View(p);
+            }
 
-            _guideService.Add(newGuide);
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -89,7 +99,15 @@ namespace ReservationProject.Areas.Admin.Controllers
             values.GuideTwitterURL = p.twitterUrl;
             values.GuideInstagramURL = p.instagramUrl;
 
-            _guideService.Update(values);
+            if (ModelState.IsValid)
+            {
+                _guideService.Update(values);
+            }
+            else
+            {
+                return View(p);
+            }
+            
             return RedirectToAction("Index");
         }
         public IActionResult ChangeStatus(int id)
