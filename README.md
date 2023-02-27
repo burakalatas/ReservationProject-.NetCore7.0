@@ -9,3 +9,5 @@ I used some technologies in this project:
 - Asp.NetCore Identity
 - MSSQL (Code First Approach)
 - Serilog
+- ClosedXml & EpPlus For Excel Outputs
+- iTextSharp For Pdf Outputs
