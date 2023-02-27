@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ReservationProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]/{id?}")]
     public class UserController : Controller
     {
         private readonly IAppUserService _userService;
@@ -25,7 +26,7 @@ namespace ReservationProject.Areas.Admin.Controllers
         {
             var userValue = _userService.GetById(id);
             _userService.Delete(userValue);
-            return RedirectToAction("Index", "User", new { area = "Admin" });
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult EditUser(int id)
@@ -37,7 +38,7 @@ namespace ReservationProject.Areas.Admin.Controllers
         public IActionResult EditUser(AppUser user)
         {
             _userService.Update(user);
-            return RedirectToAction("Index", "User", new { area = "Admin" });
+            return RedirectToAction("Index");
         }
         public IActionResult CommentHistory(int id) 
         {

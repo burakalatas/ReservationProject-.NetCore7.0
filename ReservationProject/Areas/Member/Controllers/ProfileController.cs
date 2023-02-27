@@ -7,7 +7,7 @@ using ReservationProject.Areas.Member.Models;
 namespace ReservationProject.Areas.Member.Controllers
 {
     [Area("Member")]
-    [Route("Member/[controller]/[action]")]
+    [Route("Member/[controller]/[action]/{id?}")]
     public class ProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

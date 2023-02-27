@@ -59,6 +59,16 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="/Admin/Guide/EditGuide/@item.GuideID"><i class='bx bx-edit'></i> Düzenle</a>
+
+                                                @if (item.GuideStatus==false)
+                                                {
+                                                    <a class="dropdown-item" href="/Admin/Guide/ChangeStatus/@item.GuideID"><i class='bx bx-check-circle'></i> Aktif Et</a>
+                                                }
+                                                else
+                                                {
+                                                    <a class="dropdown-item" href="/Admin/Guide/ChangeStatus/@item.GuideID"><i class='bx bx-x-circle'></i> Pasif Yap</a>
+                                                }
+
                                                 <a class="dropdown-item" onclick="return confirm('Silmek istediğinizden emin misiniz ?')" href="/Admin/Guide/DeleteGuide/@item.GuideID"><i class="bx bx-trash me-1"></i> Sil</a>
                                             </div>
                                         </div>

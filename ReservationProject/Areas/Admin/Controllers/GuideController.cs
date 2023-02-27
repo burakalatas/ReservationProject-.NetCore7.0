@@ -8,6 +8,7 @@ using ReservationProject.Areas.Admin.Models;
 namespace ReservationProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]/{id?}")]
     public class GuideController : Controller
     {
         private readonly IGuideService _guideService;
@@ -112,6 +113,7 @@ namespace ReservationProject.Areas.Admin.Controllers
         }
         public IActionResult ChangeStatus(int id)
         {
+            _guideService.ChangeStatus(id);
             return RedirectToAction("Index");
         }
         public IActionResult DeleteGuide(int id)

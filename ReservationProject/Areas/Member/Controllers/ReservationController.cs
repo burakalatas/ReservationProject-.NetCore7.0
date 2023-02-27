@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace ReservationProject.Areas.Member.Controllers
 {
     [Area("Member")]
+    [Route("Member/[controller]/[action]/{id?}")]
     public class ReservationController : Controller
     {
         DestinationManager destinationManager = new(new EfDestinationDal());

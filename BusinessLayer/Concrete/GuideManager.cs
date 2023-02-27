@@ -23,6 +23,11 @@ namespace BusinessLayer.Concrete
             _guideDal.insert(entity);
         }
 
+        public void ChangeStatus(int id)
+        {
+            _guideDal.ChangeStatus(id);
+        }
+
         public void Delete(Guide entity)
         {
             _guideDal.delete(entity);

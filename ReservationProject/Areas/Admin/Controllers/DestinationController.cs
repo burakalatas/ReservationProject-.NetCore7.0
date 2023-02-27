@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ReservationProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]/{id?}")]
     public class DestinationController : Controller
     {
         private readonly IDestinationService _destinationService;
@@ -30,7 +31,7 @@ namespace ReservationProject.Areas.Admin.Controllers
         public IActionResult AddDestination(Destination destination)
         {
             _destinationService.Add(destination);
-            return RedirectToAction("Index", "Destination", new { area = "Admin" });
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult EditDestination(int id)
@@ -42,13 +43,13 @@ namespace ReservationProject.Areas.Admin.Controllers
         public IActionResult EditDestination(Destination destination)
         {
             _destinationService.Update(destination);
-            return RedirectToAction("Index", "Destination", new { area = "Admin" });
+            return RedirectToAction("Index");
         }
         public IActionResult DeleteDestination(int id)
         {
             var destinationValue = _destinationService.GetById(id);
             _destinationService.Delete(destinationValue);
-            return RedirectToAction("Index", "Destination", new { area = "Admin" });
+            return RedirectToAction("Index");
         }
     }
 }
