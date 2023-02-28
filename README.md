@@ -11,3 +11,4 @@ I used some technologies in this project:
 - Serilog
 - ClosedXml & EpPlus For Excel Outputs
 - iTextSharp For Pdf Outputs
+- MailKit has been added to send mails to users via system. (Not active right now. Because of there is no any sender mail.)
