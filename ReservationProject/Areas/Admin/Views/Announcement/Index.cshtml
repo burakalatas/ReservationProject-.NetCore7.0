@@ -1,59 +1,52 @@
-﻿@model List<ContactUs>
+﻿@model List<AnnouncementListDTO>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="card">
-    <div class="card-header d-flex align-items-center justify-content-between">
-        <h5 class="mb-0">Mesajlar (@Model.Count())</h5>
-        <a class="btn btn-primary" href="/Admin/ContactUs/ReadMessages/">Okunan Mesajlar</a>
-    </div>
+    <h5 class="card-header">Duyurular</h5>
     <div class="table-responsive text-nowrap">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Ad</th>
-                    <th>Mail</th>
-                    <th>Konu</th>
-                    <th>Mesaj</th>
-                    <th>Tarih</th>
+                    <th>Başlık</th>
+                    <th>İÇERİK</th>
                     <th>Durum</th>
+                    <th>Detaylar</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.UserName</td>
-                        <td>@item.UserMail</td>
-                        <td>@item.Subject</td>
-                        <td>@item.Message</td>
-                        <td>@item.ContactUsDate.ToShortDateString()</td>
-
-                        @if (item.ContactUsStatus == true)
+                        <td>@item.AnnouncementTitle</td>
+                        <td>@(item.AnnouncementContent.Length > 20 ? item.AnnouncementContent.Substring(0, item.AnnouncementContent.Substring(0, 25).LastIndexOf(" ")) + "..." : item.AnnouncementContent)</td>
+                        
+                        @if (item.AnnouncementStatus == true)
                         {
                             <td><span class="badge bg-label-success me-1">Aktif</span></td>
                         }
                         else
                         {
-                            <td><span class="badge bg-label-warning me-1">Okundu</span></td>
+                            <td><span class="badge bg-label-danger me-1">Pasif</span></td>
                         }
-
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    @if (item.ContactUsStatus ==true)
+                                    <a class="dropdown-item" href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementID"><i class='bx bx-edit'></i>Düzenle</a>
+                                    @if (item.AnnouncementStatus == true)
                                     {
-                                        <a class="dropdown-item" href="/Admin/ContactUs/ChangeStatusIndex/@item.ContactUsId"><i class='bx bx-check-circle'></i> Okundu olarak işaretle</a>
+                                        <a class="dropdown-item" href="/Admin/Announcement/ChangeStatus/@item.AnnouncementID"><i class='bx bx-x-circle'></i>Yayından Kaldır</a>
                                     }
                                     else
                                     {
-                                        <a class="dropdown-item" href="/Admin/ContactUs/ChangeStatusIndex/@item.ContactUsId"><i class='bx bx-x-circle'></i> Okunmadı olarak işaretle</a>
+                                        <a class="dropdown-item" href="/Admin/Announcement/ChangeStatus/@item.AnnouncementID"><i class='bx bx-check-circle'></i>Yayımla</a>
                                     }
+                                    <a class="dropdown-item" href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementID"><i class="bx bx-trash me-1"></i> Sil</a>
                                 </div>
                             </div>
                         </td>
@@ -63,5 +56,9 @@
         </table>
     </div>
     <div class="card-footer" style="text-align:center;">
+        <a class="btn btn-primary" href="/Admin/Announcement/AddAnnouncement/">
+            Yeni Duyuru Ekle
+        </a>
     </div>
 </div>
+
