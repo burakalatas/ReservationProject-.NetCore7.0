@@ -1,0 +1,53 @@
+﻿@model List<Visitor>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Api Ziyaretçiler</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Şehir</th>
+                    <th>Ülke</th>
+                    <th>Mail</th>
+                    <th>Dahası</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.VisitorName</td>
+                        <td>@item.VisitorSurname</td>
+                        <td>@item.VisitorCity</td>
+                        <td>@item.VisitorCountry</td>
+                        <td>@item.VisitorMail</td>
+
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/Admin/Visitor/UpdateVisitor/@item.VisitorID"><i class="bx bx-edit-alt me-1"></i> Düzenle</a>
+                                    <a class="dropdown-item" href="/Admin/Visitor/DeleteVisitor/@item.VisitorID"><i class="bx bx-trash me-1"></i> Sil</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer" style="text-align:center;">
+        <a class="btn btn-primary" href="/Admin/Visitor/AddVisitor/">
+            Yeni Ziyaretçi Ekle
+        </a>
+    </div>
+</div>
+

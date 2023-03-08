@@ -1,0 +1,108 @@
+﻿@model Visitor
+@{
+    ViewData["Title"] = "UpdateVisitor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <!-- Basic with Icons -->
+    <div class="col-xxl">
+        <div class="card mb-4">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Api Ziyaretçi Düzenle</h5>
+                <a class="btn btn-primary" href="/Admin/Visitor/Index/">Geri Dön</a>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <input type="hidden" asp-for="VisitorID" />
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Ad</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-fullname2" class="input-group-text">
+                                    <i class="bx bx-map"></i>
+                                </span>
+                                <input type="text"
+                                       class="form-control"
+                                       id="basic-icon-default-fullname"
+                                       placeholder="Ad"
+                                       aria-label="Ad"
+                                       aria-describedby="basic-icon-default-fullname2" asp-for="VisitorName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Soyad</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-fullname2" class="input-group-text">
+                                    <i class="bx bx-map"></i>
+                                </span>
+                                <input type="text"
+                                       class="form-control"
+                                       id="basic-icon-default-fullname"
+                                       placeholder="Soyad"
+                                       aria-label="Soyad"
+                                       aria-describedby="basic-icon-default-fullname2" asp-for="VisitorSurname" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Şehir</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text">
+                                    <i class="bx bx-sun"></i>
+                                </span>
+                                <input type="text"
+                                       id="basic-icon-default-company"
+                                       class="form-control"
+                                       placeholder="Şehir"
+                                       aria-label="Şehir"
+                                       aria-describedby="basic-icon-default-company2" asp-for="VisitorCity" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Ülke</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text">
+                                    <i class="bx bx-money"></i>
+                                </span>
+                                <input type="text"
+                                       id="basic-icon-default-company"
+                                       class="form-control"
+                                       placeholder="Ülke"
+                                       aria-label="Ülke"
+                                       aria-describedby="basic-icon-default-company2" asp-for="VisitorCountry" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Mail</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text">
+                                    <i class="bx bx-image"></i>
+                                </span>
+                                <input type="text"
+                                       id="basic-icon-default-company"
+                                       class="form-control"
+                                       placeholder="Mail"
+                                       aria-label="Mail"
+                                       aria-describedby="basic-icon-default-company2" asp-for="VisitorMail" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
