@@ -1,0 +1,41 @@
+﻿@model IEnumerable<HotelSearchViewModel.Result>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Otel Arama (@Model.Count())</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ad</th>
+                    <th>?/10</th>
+                    <th>Ziyaret Sayısı</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex">
+                                <div>
+                                    <img src="@item.photoMainUrl" class="avatar avatar-sm me-2" alt="Movie Image">
+                                </div>
+                            </div>
+                        </td>
+                        <td>@item.name</td>
+                        <td>@item.reviewScore</td>
+                        <td>@item.reviewCount</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer" style="text-align:center;">
+    </div>
+</div>
+
