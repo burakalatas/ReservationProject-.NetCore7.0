@@ -1,0 +1,109 @@
+﻿@model GetDestinationByIdQueryResult
+@{
+    ViewData["Title"] = "GetDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <!-- Basic with Icons -->
+    <div class="col-xxl">
+        <div class="card mb-4">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">CQRS Rota Güncelle</h5>
+                <small class="text-muted float-end">traversal</small>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    @Html.HiddenFor(x=>x.destinationid)
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Başlangıç Şehri</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-fullname2" class="input-group-text">
+                                    <i class="bx bx-map"></i>
+                                </span>
+                                <input type="text"
+                                       class="form-control"
+                                       id="basic-icon-default-fullname"
+                                       placeholder="Başlangıç şehri"
+                                       aria-label="Başlangıç şehri"
+                                       aria-describedby="basic-icon-default-fullname2" asp-for="citystart" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Varış Şehri</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-fullname2" class="input-group-text">
+                                    <i class="bx bx-map"></i>
+                                </span>
+                                <input type="text"
+                                       class="form-control"
+                                       id="basic-icon-default-fullname"
+                                       placeholder="Varış şehri"
+                                       aria-label="Varış şehri"
+                                       aria-describedby="basic-icon-default-fullname2" asp-for="cityend" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Gün Sayısı</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text">
+                                    <i class="bx bx-sun"></i>
+                                </span>
+                                <input type="text"
+                                       id="basic-icon-default-company"
+                                       class="form-control"
+                                       placeholder="3 Gece 4 Gün"
+                                       aria-label="3 Gece 4 Gün"
+                                       aria-describedby="basic-icon-default-company2" asp-for="daynight" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Fiyat</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text">
+                                    <i class="bx bx-money"></i>
+                                </span>
+                                <input type="text"
+                                       id="basic-icon-default-company"
+                                       class="form-control"
+                                       placeholder="1500"
+                                       aria-label="1500"
+                                       aria-describedby="basic-icon-default-company2" asp-for="price" />
+                                <span id="basic-icon-default-email2" class="input-group-text">$</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Tur Kapasitesi</label>
+                        <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                                <span id="basic-icon-default-company2" class="input-group-text">
+                                    <i class="bx bx-body"></i>
+                                </span>
+                                <input type="text"
+                                       id="basic-icon-default-company"
+                                       class="form-control"
+                                       placeholder="20"
+                                       aria-label="20"
+                                       aria-describedby="basic-icon-default-company2" asp-for="capacity" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

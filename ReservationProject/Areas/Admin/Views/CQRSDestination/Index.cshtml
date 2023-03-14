@@ -1,0 +1,56 @@
+﻿@model List<GetAllDestinationQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">CQRS Tur Verileri</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Başlangıç Şehri</th>
+                    <th>Varış Şehri</th>
+                    <th>Fiyat</th>
+                    <th>Kapasite</th>
+                    <th>Gün</th>
+                    <th>Dahası</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id</td>
+                        <td>@item.cityStart</td>
+                        <td><strong>@item.cityEnd</strong></td>
+                        <td>$@item.price</td>
+                        <td>@item.capacity</td>
+                        <td>@item.daynight</td>
+
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/Destination/DestinationDetails/@item.id"><i class="bx bx-show"></i> Sitede Gör</a>
+                                    <a class="dropdown-item" href="/Admin/CQRSDestination/GetDestination/@item.id"><i class="bx bx-edit-alt me-1"></i> Düzenle</a>
+                                    <a class="dropdown-item" href="/Admin/CQRSDestination/DeleteDestination/@item.id"><i class="bx bx-trash me-1"></i> Sil</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer" style="text-align:center;">
+        <a class="btn btn-primary" href="/Admin/CQRSDestination/AddDestination/">
+            Yeni Rota Ekle
+        </a>
+    </div>
+</div>
+
