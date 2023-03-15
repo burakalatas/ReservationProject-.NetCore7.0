@@ -14,4 +14,5 @@ I used some technologies in this project:
 - MailKit has been added to send mails to users via system. (Not active right now. Because of there is no any sender mail.)
 - Auto Mapper
 - Rapid Api
+- CQRS Design pattern (it isn't included to all project. Only small part.)
 
