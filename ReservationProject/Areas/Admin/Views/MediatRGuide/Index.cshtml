@@ -1,0 +1,56 @@
+﻿@model List<GetAllGuideQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">MediatR Rehber Verileri</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fotoğraf</th>
+                    <th>İsim</th>
+                    <th>Açıklama</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.GuideID</td>
+                        <td>
+                            <div class="d-flex">
+                                <div>
+                                    <img src="~/guideimages/@item.GuideImage" class="avatar avatar-sm rounded-circle me-2" alt="Guide Image">
+                                </div>
+                            </div>
+                        </td>
+                        <td>@item.GuideName</td>
+                        <td>@item.GuideDescription</td>
+
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/Admin/MediatRGuide/GetGuidesById/@item.GuideID"><i class="bx bx-edit-alt me-1"></i> Düzenle</a>
+                                    <a class="dropdown-item" href="/Admin/MediatRGuide/DeleteGuide/@item.GuideID"><i class="bx bx-trash me-1"></i> Sil</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer" style="text-align:center;">
+        <a class="btn btn-primary" href="/Admin/MediatRGuide/CreateGuide/">
+            Yeni Rehber Ekle
+        </a>
+    </div>
+</div>
+
