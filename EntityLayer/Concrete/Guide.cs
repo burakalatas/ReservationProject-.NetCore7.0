@@ -17,5 +17,6 @@ namespace EntityLayer.Concrete
         public string? GuideTwitterURL { get; set; }
         public string? GuideInstagramURL { get; set; }
         public bool GuideStatus { get; set; }
+        public List<Destination>? Destinations { get; set; }
     }
 }

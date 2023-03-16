@@ -47,6 +47,11 @@ namespace BusinessLayer.Concrete
             return _commentDal.GetListCommentWithDestination();
         }
 
+        public List<Comment> GetListCommentWithDestinationAndUser(int id)
+        {
+            return _commentDal.GetListCommentWithDestinationAndUser(id);
+        }
+
         public void Update(Comment entity)
         {
             _commentDal.update(entity);

@@ -1,27 +1,31 @@
-﻿<div class="leave-comment-form mt-5" id="reply">
-    <h4 class="side-title mb-2">Yorum yap</h4>
-    <p class="mb-4">
-        İşaretli alanları doldurmanız gerekmektedir.
-    </p>
-    <form method="post" asp-action="AddComment" asp-controller="Comment">
-
-        <div class="form-group">
-            <textarea name="CommentContent" class="form-control" placeholder="Yorumunuz*" required=""
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <div class="leave-comment-form mt-5" id="reply">
+       <h4 class="side-title mb-2">Yorum yap</h4>
+        <form method="post" asp-action="AddComment" asp-controller="Comment">
+            <div class="form-group">
+                <textarea name="CommentContent" class="form-control" placeholder="Yorumunuz*" required=""
                       spellcheck="false"></textarea>
-        </div>
-        <div class="input-grids row">
-
-            <div class="form-group col-lg-6">
-                <input type="text" name="CommentName" class="form-control" placeholder="Adınız soyadınız*"
-                       required="">
             </div>
-            <div class="form-group col-lg-6">
-                <input type="hidden" name="DestinationID" value="@ViewBag.id" class="form-control" placeholder="Destination ID*" required="">
+            <div class="input-grids row">
+                <div class="form-group col-lg-6">
+                    <input type="hidden" name="AppUserID" value="@ViewBag.userID" class="form-control" placeholder="Destination ID*" required="">
+                </div>
+                <div class="form-group col-lg-6">
+                    <input type="hidden" name="DestinationID" value="@ViewBag.id" class="form-control" placeholder="Destination ID*" required="">
+                </div>
             </div>
-        </div>
 
-        <div class="submit text-right">
-            <button class="btn btn-style btn-primary">Gönder </button>
-        </div>
-    </form>
-</div>
+            <div class="submit text-right">
+                <button class="btn btn-style btn-primary">Gönder </button>
+            </div>
+        </form>
+    </div>
+}
+else
+{
+    <hr />
+    <div class="form-group text-center">
+        <p>Hemen üye olarak yorum yapabilirsiniz. <a href="/Login/SignUp/">Üye OL</a> ya da  <a href="/Login/SignIn/">Giriş Yap</a></p>
+    </div>
+}

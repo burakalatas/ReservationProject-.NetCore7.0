@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ReservationProject.Controllers
@@ -8,10 +9,17 @@ namespace ReservationProject.Controllers
     public class CommentController : Controller
     {
         CommentManager commentManager = new CommentManager(new EfCommentDal());
-        
-        [HttpGet]
-        public PartialViewResult AddComment(int id)
+        private readonly UserManager<AppUser> _userManager;
+
+        public CommentController(UserManager<AppUser> userManager)
         {
+            _userManager = userManager;
+        }
+
+        [HttpGet]
+        public async Task<PartialViewResult> AddComment(int id)
+        {
+            
             ViewBag.id = id;
             return PartialView();
         }

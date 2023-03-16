@@ -9,7 +9,7 @@ namespace ReservationProject.ViewComponents.Comment
         CommentManager commentManager = new(new EfCommentDal());
         public IViewComponentResult Invoke(int id)
         {
-            var values = commentManager.GetListByDestinationId(id);
+            var values = commentManager.GetListCommentWithDestinationAndUser(id);
             return View(values);
         }
     }

@@ -6,13 +6,13 @@
     {
         <div class="media mt-4">
             <div class="img-circle">
-                <img src="~/Traversal/assets/images/c1.jpg" class="img-fluid" alt="...">
+                <img src="~/userimages/@item.AppUser.ImageUrl" class="img-fluid" alt="...">
             </div>
             <div class="media-body">
                 <ul class="time-rply mb-2">
                     <li>
-                        <a href="~/Traversal/assets#URL" class="name mt-0 mb-2 d-block">@item.CommentName</a>
-                        @item.CommentDate
+                        <a href="~/Traversal/assets#URL" class="name mt-0 mb-2 d-block">@item.AppUser.Name @item.AppUser.Surname</a>
+                        @item.CommentDate.ToShortDateString()
 
                     </li>
                     <li class="reply-last">

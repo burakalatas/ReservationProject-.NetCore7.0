@@ -24,7 +24,10 @@ namespace EntityLayer.Concrete
         public string? DestinationSubImage2 { get; set; }
         public string? DestinationDetails { get; set; }
         public string? DestinationDetails2 { get; set; }
+        public DateTime DestinationDate { get; set; }
         public List<Comment>? Comments { get; set; }
         public List<Reservation>? Reservations { get; set; }
+        public int? GuideID { get; set; }
+        public Guide? Guide { get; set; }
     }
 }

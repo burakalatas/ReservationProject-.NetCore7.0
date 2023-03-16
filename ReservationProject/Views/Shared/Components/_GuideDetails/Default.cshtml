@@ -1,0 +1,57 @@
+﻿@model Guide
+
+<div class="author-card mt-5">
+    <div class="row align-items-center">
+        <div class="col-sm-3 col-6">
+            <div>
+                <img src="~/guideimages/@Model.GuideImage" alt="" class="rounded-circle img-fluid">
+            </div>
+        </div>
+
+        <div class="col-sm-9 mt-sm-0 mt-3">
+            <h3 class="mb-3 title">@Model.GuideName</h3>
+            <p>
+                @Model.GuideDescription
+            </p>
+            <a name="yorumlar"></a>
+            <ul class="author-icons mt-4">
+                <li>
+                    <a class="facebook" target="_blank" href="~/Traversal/assets#url">
+                        <span class="fa fa-facebook"
+                              aria-hidden="true"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="twitter" target="_blank" href="@Model.GuideTwitterURL">
+                        <span class="fa fa-twitter"
+                              aria-hidden="true"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="google" target="_blank" href="~/Traversal/assets#url">
+                        <span class="fa fa-google-plus"
+                              aria-hidden="true"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="linkedin" target="_blank" href="~/Traversal/assets#url">
+                        <span class="fa fa-linkedin"
+                              aria-hidden="true"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="github" target="_blank" href="~/Traversal/assets#url">
+                        <span class="fa fa-github"
+                              aria-hidden="true"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dribbble" target="_blank" href="~/Traversal/assets#url">
+                        <span class="fa fa-dribbble"
+                              aria-hidden="true"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
