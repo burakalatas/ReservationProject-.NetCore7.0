@@ -40,6 +40,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Member\Data\" />
+    <Folder Include="wwwroot\Admin\html\" />
     <Folder Include="wwwroot\guideimages\" />
     <Folder Include="wwwroot\PdfReports\" />
     <Folder Include="wwwroot\userimages\" />
