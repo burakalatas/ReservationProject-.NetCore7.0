@@ -34,7 +34,7 @@
                     </div>
                     <ul class="blog-meta">
                         <li class="meta-item blog-lesson">
-                            <span class="meta-value"> @Model.DestinationDate </span>
+                            <span class="meta-value"> @Model.DestinationDate.ToShortDateString() </span>
                         </li>
                     </ul>
                 </div>
@@ -84,7 +84,7 @@
                     </div>
 
                     <!--//author-card-->
-                    @await Component.InvokeAsync("_GuideDetails")
+                    @await Component.InvokeAsync("_GuideDetails",new{id=ViewBag.GuideID})
 
                     <!--//author-card-->
                     @await Component.InvokeAsync("_CommentList", new{id=ViewBag.id})

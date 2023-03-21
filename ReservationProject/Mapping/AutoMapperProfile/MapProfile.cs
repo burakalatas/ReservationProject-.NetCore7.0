@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DTOLayer.DTOs.AnnouncementDTOs;
+using DTOLayer.DTOs.ContactDTOs;
 using DTOLayer.DTOs.UserDTOs;
 using EntityLayer.Concrete;
 
@@ -23,7 +24,9 @@ namespace ReservationProject.Mapping.AutoMapperProfile
 
             CreateMap<AppUser, UserSignInDTO>();
             CreateMap<UserSignInDTO, AppUser>();
-            
+
+            CreateMap<ContactUs, SendMessageDto>().ReverseMap();
+
         }
     }
 }

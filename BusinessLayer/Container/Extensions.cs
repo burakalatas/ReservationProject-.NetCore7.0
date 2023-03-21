@@ -3,10 +3,12 @@ using BusinessLayer.Abstract.AbstractUow;
 using BusinessLayer.Concrete;
 using BusinessLayer.Concrete.ConcreteUow;
 using BusinessLayer.ValidationRules.AnnouncementValidations;
+using BusinessLayer.ValidationRules.ContactValidations;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using DataAccessLayer.UnitOfWork;
 using DTOLayer.DTOs.AnnouncementDTOs;
+using DTOLayer.DTOs.ContactDTOs;
 using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -57,6 +59,7 @@ namespace BusinessLayer.Container
         {
             Services.AddTransient<IValidator<AnnouncementAddDTO>, AnnouncementAddValidator>();
             Services.AddTransient<IValidator<AnnouncementUpdateDTO>, AnnouncementUpdateValidator>();
+            Services.AddTransient<IValidator<SendMessageDto>, SendMessageValidator>();
         }
     }
 }

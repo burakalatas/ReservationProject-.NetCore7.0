@@ -12,9 +12,9 @@ namespace ReservationProject.ViewComponents.Destination
             _guideService = guideService;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int id)
         {
-            var values = _guideService.GetById(2);
+            var values = _guideService.GetById(id);
             return View(values);
         }
     }

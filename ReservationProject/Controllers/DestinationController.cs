@@ -34,6 +34,7 @@ namespace ReservationProject.Controllers
 
             ViewBag.id = id;
             var values = destinationManager.GetDestinationWithGuide(id);
+            ViewBag.GuideID = values.GuideID;
             return View(values);
         }
         [HttpPost]
