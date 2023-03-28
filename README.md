@@ -17,4 +17,6 @@ I used some technologies in this project:
 - CQRS Design pattern (it isn't included to all project. Only small part.)
 - MediatR has been added to ease the connection of CQRS folders.
 - Unit of work implementation has been added the small part of project.
+- SignalR has been added to get some instant values directly.
+- PostgreSql has been used in SignalR api layer.
 
