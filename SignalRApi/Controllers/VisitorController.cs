@@ -25,7 +25,8 @@ namespace SignalRApi.Controllers
                 {
                     var newVisitor = new Visitor
                     {
-                        VisitDate =DateTime.Now.AddDays(x),
+                        //VisitDate = DateTime.Now.AddDays(-x),
+                        VisitDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-x)),
                         City = item,
                         CityVisitCount = random.Next(100, 2000)
                     };

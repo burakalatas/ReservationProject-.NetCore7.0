@@ -13,6 +13,6 @@
         public int VisitorID { get; set; }
         public ECity City { get; set; }
         public int CityVisitCount { get; set; }
-        public DateTime VisitDate { get; set; }
+        public DateOnly VisitDate { get; set; }
     }
 }
