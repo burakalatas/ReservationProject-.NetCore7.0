@@ -59,6 +59,14 @@ builder.Services.AddMvc(config =>
 
 builder.Services.AddMvc();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Login/SignIn";
+    options.LogoutPath = "/Login/SignOut";
+    //options.AccessDeniedPath = "/Login/AccessDenied";
+    options.AccessDeniedPath = "/ErrorPage/Error404";
+});
+
 var app = builder.Build();
 
 //logging stuff---
