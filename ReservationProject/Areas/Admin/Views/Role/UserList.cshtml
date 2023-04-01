@@ -1,0 +1,37 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h6 class="card-header">Üyeler (<strong><span class="align-items-sm-end">@Model.Count()</span></strong>)</h6>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Ad Soyad</th>
+                    <th>Dahası</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><strong>@item.Id</strong></td>
+                        <td>@item.UserName</td>
+                        <td>@item.Name @item.Surname</td>
+                        <td>
+                            <a href="/Admin/Role/AssignRole/@item.Id" class="btn btn-primary">Rol Ata</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer" style="text-align:center;">
+    </div>
+</div>
+

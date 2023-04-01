@@ -55,6 +55,7 @@ namespace ReservationProject.Areas.Member.Controllers
         [HttpPost]
         public IActionResult NewReservation(Reservation p)
         {
+            p.DestinationID = 1;
             p.AppUserId = 1;
             p.Status = "Onay bekliyor";
             reservationManager.Add(p);

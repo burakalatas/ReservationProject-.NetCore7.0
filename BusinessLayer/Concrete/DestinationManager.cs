@@ -38,6 +38,11 @@ namespace BusinessLayer.Concrete
             return _destinationDal.GetDestinationWithGuide(id);
         }
 
+        public List<Destination> GetLast4Destination()
+        {
+            return _destinationDal.GetLast4Destination();
+        }
+
         public List<Destination> GetList()
         {
             return _destinationDal.list();

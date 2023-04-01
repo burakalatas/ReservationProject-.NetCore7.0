@@ -1,0 +1,44 @@
+﻿@model List<RoleAssignViewModel>
+@{
+    ViewData["Title"] = "AssignRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <!-- Basic with Icons -->
+    <div class="col-xxl">
+        <div class="card mb-4">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Rol Ata</h5>
+                <a class="btn btn-primary" href="/Admin/Role/UserList/">Geri Dön</a>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    @for(int i=0; i<Model.Count(); i++)
+                    {
+                        <div class="row mb-3">
+                            <input type="hidden" asp-for="@Model[i].RoleId" />
+                            <input type="hidden" asp-for="@Model[i].RoleName" />
+                            <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">@Model[i].RoleName</label>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-merge">
+                                    <input type="checkbox"
+                                       class="form-check-input"
+                                       id="basic-icon-default-fullname"
+                                       aria-label="Adı Soyadı"
+                                       aria-describedby="basic-icon-default-fullname2" asp-for="@Model[i].RoleExist" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="row justify-content-end">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
