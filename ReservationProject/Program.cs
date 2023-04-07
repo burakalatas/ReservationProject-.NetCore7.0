@@ -12,6 +12,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.DependencyInjection;
 using ReservationProject.CQRS.Handlers.DestinationHandlers;
 using ReservationProject.Models;
@@ -57,7 +58,9 @@ builder.Services.AddMvc(config =>
     config.Filters.Add(new AuthorizeFilter(policy));
 });
 
-builder.Services.AddMvc();
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -94,6 +97,14 @@ app.UseAuthentication();
 app.UseRouting();
 
 app.UseAuthorization();
+
+var supportedCultures = new[] {"tr","en"};
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 
 app.MapControllerRoute(
     name: "default",
