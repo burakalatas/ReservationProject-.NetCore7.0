@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ReservationProject.Areas.Member.Controllers
 {
     [Area("Member")]
-    [AllowAnonymous]
+    [Route("Member/[controller]/[action]/{id?}")]
     public class DestinationController : Controller
     {
         DestinationManager destinationManager = new(new EfDestinationDal());
@@ -14,6 +14,17 @@ namespace ReservationProject.Areas.Member.Controllers
         {
             var values = destinationManager.GetList();
             return View(values);
+        }
+        public IActionResult GetCitiesSearchByName(string searchString)
+        {
+            ViewData["CurrentFilter"] = searchString;
+            var values = from x in destinationManager.GetList() select x;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                values = values.Where(y => y.DestinationCity.Contains(searchString));
+            }
+            return View(values.ToList());
+
         }
     }
 }
