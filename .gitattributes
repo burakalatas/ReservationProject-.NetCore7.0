@@ -1,8 +1,6 @@
 #Change Language
 * linguist-vendored
-*.html linguist-detectable=false
-*.scss linguist-detectable=false
-*.css linguist-detectable=false
+*.cs linguist-vendored=false
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
