@@ -1,5 +1,5 @@
 # ReservationProject-.NetCore7.0
-In this project I am going to create a reservation website.
+In this project I created a reservation website.
 
 I used some technologies in this project:
 - n-tier architecture
